@@ -7,10 +7,19 @@ namespace Alura.CoisasAFazer.Infrastructure
     {
         public DbTarefasContext(DbContextOptions options) : base(options)
         {
+
         }
 
         public DbTarefasContext()
         {
+
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder.UseInMemomoryDatabase();
+            if(!optionsBuilder.IsConfigured)
+                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=DbTarefas;Trusted_Connection=true");
         }
 
         public DbSet<Tarefa> Tarefas { get; set; }
