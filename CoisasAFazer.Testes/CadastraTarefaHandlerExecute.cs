@@ -96,8 +96,8 @@ namespace CoisasAFazer.Testes
             CommandResult resultado = handler.Execute(comando);
 
             //assert
-            Assert.Equal(LogLevel.Error, levelCaptrado);
-            Assert.Contains("Estudar Xunit", mensagemCaptura);
+            Assert.Equal(LogLevel.Debug, levelCaptrado);
+            Assert.Contains("Persistindo a tarefa...", mensagemCaptura);
         }
 
 
